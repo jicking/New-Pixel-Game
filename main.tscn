@@ -1,9 +1,22 @@
-[gd_scene load_steps=2 format=3 uid="uid://bv08081ehp7og"]
+[gd_scene load_steps=4 format=3 uid="uid://bv08081ehp7og"]
 
-[ext_resource type="Texture2D" uid="uid://dwuj53417qxdm" path="res://assets/skull.png" id="1_tp5p6"]
+[ext_resource type="Script" path="res://main.gd" id="1_qqqws"]
+[ext_resource type="PackedScene" uid="uid://duyip4bm7avgu" path="res://screens/splash.tscn" id="2_graok"]
+[ext_resource type="PackedScene" uid="uid://c2dmepwlkbks0" path="res://screens/start.tscn" id="2_t6gqi"]
 
-[node name="Node2D" type="Node2D"]
+[node name="Main" type="Node2D"]
+script = ExtResource("1_qqqws")
 
-[node name="Skull" type="Sprite2D" parent="."]
-position = Vector2(136, 72)
-texture = ExtResource("1_tp5p6")
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+autostart = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Start" parent="CanvasLayer" instance=ExtResource("2_t6gqi")]
+visible = false
+
+[node name="Splash" parent="CanvasLayer" instance=ExtResource("2_graok")]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
