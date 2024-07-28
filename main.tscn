@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://bv08081ehp7og"]
+[gd_scene load_steps=5 format=3 uid="uid://bv08081ehp7og"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_qqqws"]
 [ext_resource type="PackedScene" uid="uid://duyip4bm7avgu" path="res://screens/splash.tscn" id="2_graok"]
 [ext_resource type="PackedScene" uid="uid://c2dmepwlkbks0" path="res://screens/start.tscn" id="2_t6gqi"]
+[ext_resource type="PackedScene" uid="uid://ovxdi2fx6hf1" path="res://fx/fade_transition.tscn" id="4_6cut1"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_qqqws")
@@ -18,4 +19,8 @@ visible = false
 
 [node name="Splash" parent="CanvasLayer" instance=ExtResource("2_graok")]
 
+[node name="FadeTransition" parent="CanvasLayer" instance=ExtResource("4_6cut1")]
+visible = false
+
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="start_button_pressed" from="CanvasLayer/Start" to="." method="_on_start_start_button_pressed"]

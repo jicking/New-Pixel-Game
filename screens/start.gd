@@ -1,10 +1,8 @@
 extends Control
-
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
+signal start_button_pressed
 
 
 func _on_button_start_button_up():
 	$AudioStreamPlayer.play()
+	start_button_pressed.emit()
+	
