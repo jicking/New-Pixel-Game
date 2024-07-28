@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://c2dmepwlkbks0"]
+[gd_scene load_steps=4 format=3 uid="uid://c2dmepwlkbks0"]
 
 [ext_resource type="Theme" uid="uid://be1gcror123l1" path="res://assets/pixel_theme.tres" id="1_1a6v8"]
+[ext_resource type="Script" path="res://screens/start.gd" id="2_cms64"]
+[ext_resource type="AudioStream" uid="uid://bd31uiw1tyryp" path="res://assets/sounds/blip.wav" id="3_ujr01"]
 
 [node name="Start" type="Control"]
 layout_mode = 3
@@ -10,6 +12,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_1a6v8")
+script = ExtResource("2_cms64")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
@@ -56,6 +59,7 @@ layout_mode = 2
 [node name="ButtonStart" type="Button" parent="VBoxContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
+size_flags_vertical = 2
 theme = ExtResource("1_1a6v8")
 theme_override_font_sizes/font_size = 14
 text = "START"
@@ -76,3 +80,8 @@ theme_override_font_sizes/font_size = 8
 text = "0.1.0-DEV"
 underline = 1
 uri = "https://github.com/jicking/New-Pixel-Game/releases"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_ujr01")
+
+[connection signal="button_up" from="VBoxContainer/VBoxContainer/ButtonStart" to="." method="_on_button_start_button_up"]

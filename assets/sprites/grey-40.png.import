@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dwuj53417qxdm"
-path="res://.godot/imported/skull.png-b3e3a5526e5abbe508c3491f9d549a8b.ctex"
+uid="uid://bsco88wgh7ao3"
+path="res://.godot/imported/grey-40.png-961c305357e7a1f4646d680a209786a4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/skull.png"
-dest_files=["res://.godot/imported/skull.png-b3e3a5526e5abbe508c3491f9d549a8b.ctex"]
+source_file="res://assets/sprites/grey-40.png"
+dest_files=["res://.godot/imported/grey-40.png-961c305357e7a1f4646d680a209786a4.ctex"]
 
 [params]
 
