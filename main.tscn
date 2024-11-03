@@ -7,10 +7,7 @@
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_qqqws")
-
-[node name="Timer" type="Timer" parent="."]
-one_shot = true
-autostart = true
+splash_timeout = 3
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -22,5 +19,4 @@ visible = false
 [node name="FadeTransition" parent="CanvasLayer" instance=ExtResource("4_6cut1")]
 visible = false
 
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="start_button_pressed" from="CanvasLayer/Start" to="." method="_on_start_start_button_pressed"]

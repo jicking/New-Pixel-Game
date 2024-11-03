@@ -1,27 +1,30 @@
-[gd_scene load_steps=5 format=3 uid="uid://elqy8uoig5sq"]
+[gd_scene load_steps=7 format=4 uid="uid://elqy8uoig5sq"]
 
 [ext_resource type="Texture2D" uid="uid://bsco88wgh7ao3" path="res://assets/sprites/grey-40.png" id="1_sp47j"]
 [ext_resource type="PackedScene" uid="uid://ovxdi2fx6hf1" path="res://fx/fade_transition.tscn" id="2_35vs1"]
+[ext_resource type="Texture2D" uid="uid://bm1x8oqrdupf6" path="res://assets/sprites/red.png" id="3_0bprs"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_l8myl"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mlkev"]
 texture = ExtResource("1_sp47j")
 0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 
-[sub_resource type="TileSet" id="TileSet_1u0k3"]
-sources/0 = SubResource("TileSetAtlasSource_l8myl")
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jnm1k"]
+texture = ExtResource("3_0bprs")
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+
+[sub_resource type="TileSet" id="TileSet_tuc2n"]
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_mlkev")
+sources/1 = SubResource("TileSetAtlasSource_jnm1k")
 
 [node name="Platformer" type="Node2D"]
 
-[node name="ColorRect" type="ColorRect" parent="."]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AAAAAAkAAAAAAAAAAAABAAkAAAAAAAAAAAACAAkAAAAAAAAAAAADAAkAAAAAAAAAAAAEAAkAAAAAAAAAAAAFAAkAAAAAAAAAAAAGAAkAAAAAAAAAAAAHAAkAAAAAAAAAAAAIAAkAAAAAAAAAAAAJAAkAAAAAAAAAAAAKAAkAAAAAAAAAAAALAAkAAAAAAAAAAAAMAAkAAAAAAAAAAAANAAkAAAAAAAAAAAAOAAkAAAAAAAAAAAAOAAgAAAAAAAAAAAANAAgAAAAAAAAAAAAMAAgAAAAAAAAAAAALAAgAAAAAAAAAAAAKAAgAAAAAAAAAAAAJAAgAAAAAAAAAAAAIAAgAAAAAAAAAAAAHAAgAAAAAAAAAAAAGAAgAAAAAAAAAAAAFAAgAAAAAAAAAAAAEAAgAAAAAAAAAAAADAAgAAAAAAAAAAAACAAgAAAAAAAAAAAABAAgAAAAAAAAAAAAAAAgAAAAAAAAAAAAOAAcAAAAAAAAAAAANAAcAAAAAAAAAAAAMAAcAAAAAAAAAAAALAAcAAAAAAAAAAAAKAAcAAAAAAAAAAAAJAAcAAAAAAAAAAAAIAAcAAAAAAAAAAAAHAAcAAAAAAAAAAAAGAAcAAAAAAAAAAAAFAAcAAAAAAAAAAAAEAAcAAAAAAAAAAAADAAcAAAAAAAAAAAACAAcAAAAAAAAAAAABAAcAAAAAAAAAAAAAAAcAAAAAAAAAAAA=")
+tile_set = SubResource("TileSet_tuc2n")
 
-[node name="FadeTransition" parent="." instance=ExtResource("2_35vs1")]
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="TileMap" type="TileMap" parent="."]
-tile_set = SubResource("TileSet_1u0k3")
-format = 2
-layer_0/tile_data = PackedInt32Array(589824, 0, 0, 589825, 0, 0, 589826, 0, 0, 589827, 0, 0, 589828, 0, 0, 589829, 0, 0, 589830, 0, 0, 589831, 0, 0, 589832, 0, 0, 589833, 0, 0, 589834, 0, 0, 589835, 0, 0, 589836, 0, 0, 589837, 0, 0, 589838, 0, 0, 589839, 0, 0, 524288, 0, 0, 524289, 0, 0, 524290, 0, 0, 524291, 0, 0, 524292, 0, 0, 524293, 0, 0, 524294, 0, 0, 524295, 0, 0, 524296, 0, 0, 524297, 0, 0, 524298, 0, 0, 524299, 0, 0, 524300, 0, 0, 524301, 0, 0, 524302, 0, 0, 524303, 0, 0)
+[node name="FadeTransition" parent="CanvasLayer" instance=ExtResource("2_35vs1")]
