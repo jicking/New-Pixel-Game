@@ -7,7 +7,6 @@
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_qqqws")
-splash_timeout = 3
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
